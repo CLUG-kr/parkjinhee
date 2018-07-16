@@ -5,7 +5,6 @@ var request = require('request');
 var bodyParser = require('body-parser');
 //웹 패키지
 var express    = require('express');
-var http = require('http');
 var app        = express();
 
 //네이버 KEY
@@ -23,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //초기 상태 get '시작'' 버튼으로 시작
 app.get('/keyboard', function(req, res){
   const menu = {
-      'type': 'buttons',
-      'buttons': ['시작']
+      "type": 'buttons',
+      "buttons": ["시작"]
   };
 
   res.set({
@@ -91,6 +90,5 @@ app.post('/message',function (req, res) {
 });
 
 //9000포트 서버 ON
-http.createServer(app).listen(9090, function() {
-    console.log('서버 실행 중..');
+app.listen(8000, function() {
 });
